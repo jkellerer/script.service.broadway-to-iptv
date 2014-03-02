@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+    <string id="30010">BroadwayToIPTV Converter</string>
+    <string id="30020">Verbindung</string>
+    <string id="30021">Hostname</string>
+    <string id="30022">Automatisch erkennen</string>
+    <string id="30023">Manuelle Eingabe</string>
+	<string id="30024">IP-Adresse</string>
+    <string id="30025">TV-PIN</string>
+    
+	<string id="30030">Ausgabe</string>
+	<string id="30031">M3U/EPG-XML Verzeichnis</string>
+
+    <string id="30040">Geplante Ausführung</string>
+	<string id="30041">Geplante Ausführung einschalten</string>
+    <string id="30042">Zeitplan</string>
+    <string id="30043">stündlich</string>
+    <string id="30044">täglich</string>
+    <string id="30045">Jeden zweiten Tag</string>
+    <string id="30046">wöchentlich</string>
+	<string id="30047">Startzeit</string>
+    <string id="30048">Nicht ausführen während Videos gespielt werden</string>
+
+    <string id="30050">Nächster Start %s</string>
+	<string id="30060">Schreibe '%s'</string>
+	<string id="30100">Kanallisten und EPG erfolgreich erstellt</string>
+    <string id="30101">Fehler: Verbindung mit Broadway S2/T nicht möglich</string>
+    <string id="30102">Fehler: M3U/EPG-XML Verzeichnis nicht konfiguriert</string>
+</strings>

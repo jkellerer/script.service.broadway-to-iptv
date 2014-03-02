@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings>
+	<category id="connection" label="30020">
+		<setting id="address_selection" type="enum" lvalues="30022|30023" default="0" label="30021"/>
+		<setting id="ip_address" type="ipaddress" label="30024" default="" visible="eq(-1,1)"/>
+		<setting id="pin" type="text" label="30025" default="0000"/>
+	</category>
+
+	<category id="output" label="30030">
+		<setting id="target_directory" type="folder" label="30031" default=""/>
+	</category>
+
+	<category id="scheduling" label="30040">
+		<setting id="enable_scheduler" type="bool" label="30041" default="false"/>
+		<setting id="schedule_interval" type="enum" label="30042" lvalues="30043|30044|30045|30046" default="2" enable="eq(-1,true)"/>
+		<setting id="schedule_time" type="labelenum" label="30047" default="00:00" visible="!eq(-1,0)" enable="eq(-2,true)"
+		         values="00:00|01:00|02:00|03:00|04:00|05:00|06:00|07:00|08:00|09:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|21:00|22:00|23:00"/>
+		<setting id="delay_while_playing" type="bool" label="30048" default="true" enable="eq(-3,true)"/>
+	</category>
+</settings>

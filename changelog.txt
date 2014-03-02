@@ -1,0 +1,5 @@
+Version 1.0.0
+
+- Initial release, offering:
+  - Conversion of Broadway Channels & EPG to IPTV Channels & EPG.
+  - Exchanging of Channels & EPG data using a local folder.

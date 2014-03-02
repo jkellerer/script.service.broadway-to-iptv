@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.service.broadway-to-iptv" name="BroadwayToIPTV Converter" version="1.0.0" provider-name="jkellerer">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="pvr.iptvsimple" version="1.6.1" optional="true"/>
+	</requires>
+	<extension point="xbmc.python.script" library="default.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.service" library="scheduler.py" start="startup"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="de">Konvertiert EPG und Kanalliste einer Broadway S2/T Box nach PVR IPTV.</summary>
+		<summary lang="en">Converts EPG and channels of a Broadway S2/T box to PVR IPTV.</summary>
+		<description lang="de">Dieses Addon erstellt die M3U und EPG-XML Dateien um einen DVB-S2/-T Netzwerk Receiver vom Typ Broadway S2 oder T mit dem Addon "PVR IPTV Simple Client" zu verbinden. Hinweis: Beide Addons müssen installiert sein und separat konfiguriert werden. Dieses Addon erstellt die Dateien in einem lokalen Ordner, IPTV liest und verwendet sie.</description>
+		<description lang="en">This addon creates the M3U and EPG-XML files for connecting a Broadway S2/T DVB-S2/-T network receiver with the addon "PVR IPTV Simple Client". Note: Both addons have to be installed and configured separately. This addon creates the files in a local folder while IPTV reads and uses them.</description>
+		<forum></forum>
+		<source>https://github.com/jkellerer/script.service.broadway-to-iptv</source>
+		<license>The MIT License</license>
+		<platform>all</platform>
+		<language></language>
+	</extension>
+</addon>
