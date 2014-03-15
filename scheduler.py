@@ -7,6 +7,8 @@ from default import run_converter
 from resources import utils as utils
 
 
+__license__ = "MIT"
+
 SECONDS_PER_HOUR = 60 * 60
 
 

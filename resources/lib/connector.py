@@ -4,6 +4,8 @@ import urllib
 from datetime import datetime
 
 __author__ = 'juergen.kellerer'
+__license__ = "MIT"
+
 
 class Connector:
     """

@@ -3,6 +3,7 @@ from httplib import HTTPConnection
 from socket import gethostbyname_ex as gethostbyname
 
 __author__ = 'juergen.kellerer'
+__license__ = "MIT"
 
 
 class BroadwayFinder():

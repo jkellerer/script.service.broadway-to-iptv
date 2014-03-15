@@ -1,6 +1,8 @@
 import xbmc
 import xbmcaddon
 
+__license__ = "MIT"
+
 __addon_id__ = 'script.service.broadway-to-iptv'
 __addon = xbmcaddon.Addon(__addon_id__)
 

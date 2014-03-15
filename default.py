@@ -9,6 +9,8 @@ from resources.lib.converter import Converter
 from resources.lib.finder import BroadwayFinder
 
 
+__license__ = "MIT"
+
 __channels_file_name = "iptv-bw-channels.m3u"
 __epg_file_name = "iptv-bw-epg.xml"
 

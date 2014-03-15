@@ -5,6 +5,10 @@ from xml.sax.saxutils import escape
 import connector
 
 
+__author__ = 'juergen.kellerer'
+__license__ = "MIT"
+
+
 class Converter:
     """
     Converts Broadway's EPG and Channel lists to the input needed by the IPTV plugin.
