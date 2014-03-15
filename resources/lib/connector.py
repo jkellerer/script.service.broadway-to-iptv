@@ -5,10 +5,10 @@ from datetime import datetime
 
 __author__ = 'juergen.kellerer'
 
-
 class Connector:
     """
-    Implements a connector that connects to the broadway box.
+    Implements a connector that allows to retrieve EPG and Channels from a broadway box
+    that is located inside the network.
     """
 
     CHARSET = "utf-8"  # The charset used for JSON.
@@ -35,7 +35,7 @@ class Connector:
 
         # TODO: Test connection and raise error when failing.
 
-    def get_url(self, path):
+    def create_url(self, path):
         """
         Returns an authenticated service URL.
         @param path: the service path to query.
@@ -43,13 +43,21 @@ class Connector:
         """
         return str("http://" + self.credentials + "@" + self.hostname + "/basicauth" + path)
 
+    def open_url(self, path):
+        """
+        Opens the service URL of the specified path.
+        @param path: the service path to query.
+        @return: a FP that can be used to read the response body.
+        """
+        return urllib.urlopen(self.create_url(path))
+
     def fetch_all_channel_stream_urls(self):
         """
         Returns a map of channel id mapped to its stream URL.
         @return: a map of id->url
         """
         channels = {}
-        fp = urllib.urlopen(self.get_url("/TVC/user/data/tv/channels.m3u"))
+        fp = self.open_url("/TVC/user/data/tv/channels.m3u")
         try:
             for line in fp.readlines():
                 if line.startswith("http://"):
@@ -68,7 +76,7 @@ class Connector:
         @return: a map of displayName->id
         """
         lists = {}
-        fp = urllib.urlopen(self.get_url("/TVC/user/data/tv/channellists"))
+        fp = self.open_url("/TVC/user/data/tv/channellists")
         try:
             for entry in json.load(fp, Connector.CHARSET):
                 lists[entry[u'DisplayName']] = entry[u'Id']
@@ -84,7 +92,7 @@ class Connector:
         @return: a map of id->displayName
         """
         channel_list = {}
-        fp = urllib.urlopen(self.get_url("/TVC/user/data/tv/channellists/" + str(channel_list_id)))
+        fp = self.open_url("/TVC/user/data/tv/channellists/" + str(channel_list_id))
         try:
             for channel in json.load(fp, Connector.CHARSET)[u'Channels']:
                 channel_list[channel[u'Id']] = channel[u'DisplayName']
@@ -100,7 +108,7 @@ class Connector:
         """
         for channel_ids_chunk in list(Connector.chunks(channel_ids, 3)):
             ids = ",".join(map(str, channel_ids_chunk))
-            fp = urllib.urlopen(self.get_url("/TVC/user/data/epg/?ids=" + ids + "&extended=1"))
+            fp = self.open_url("/TVC/user/data/epg/?ids=" + ids + "&extended=1")
             try:
                 for channel in json.load(fp, Connector.CHARSET):
                     for entry in channel[u'Entries']:
@@ -121,6 +129,7 @@ class EPGChannelEntry:
     """
     Is a small helper class that holds the EPG data of a single programme.
     """
+
     def __init__(self, channel_id, entry):
         self.channel_id = str(channel_id)
 
