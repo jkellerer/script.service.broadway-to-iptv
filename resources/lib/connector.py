@@ -22,7 +22,7 @@ class Connector:
         assert isinstance(pin, str)
         assert isinstance(hostname, str)
 
-        if (hostname.find('/') + hostname.find('\\') + hostname.find('\n') + hostname.find('\r')) > -1:
+        if (max(hostname.find('/'), hostname.find('\\'), hostname.find('\n'), hostname.find('\r'))) > -1:
             raise ValueError("hostname may not contain any of the characters [\n\r/\]")
 
         self.pin = pin
