@@ -78,8 +78,7 @@ class Converter:
             finally:
                 fp.close()
 
-        os.remove(filename)
-        os.rename(filename + ".out", filename)
+        self._replace_file(filename + ".out", filename)
 
     def write_epg(self, filename="xmltv-epg.xml"):
         """
@@ -107,5 +106,10 @@ class Converter:
             finally:
                 fp.close()
 
-        os.remove(filename)
-        os.rename(filename + ".out", filename)
+        self._replace_file(filename + ".out", filename)
+
+    @staticmethod
+    def _replace_file(source_filename, filename):
+        if os.path.isfile(filename):
+            os.remove(filename)
+        os.rename(source_filename, filename)
